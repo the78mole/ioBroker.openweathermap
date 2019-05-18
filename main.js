@@ -240,6 +240,10 @@ function parseForecast(data) {
 function requestCurrent(query) {
     return new Promise((resolve, reject) => {
         const url = 'https://api.openweathermap.org/data/2.5/weather?';
+
+		var fullUrl = url + query;
+		adapter.log.info('Requested URL: ' + fullUrl);
+
         request(url + query, (error, result, body) => {
             if (body) {
                 try  {
@@ -270,6 +274,9 @@ function requestCurrent(query) {
 function requestForecast(query) {
     return new Promise((resolve, reject) => {
         const url = 'https://api.openweathermap.org/data/2.5/forecast?';
+
+		var fullUrl = url + query;
+		adapter.log.info('Requested URL: ' + fullUrl);
 
         request(url + query, (error, result, body) => {
             if (body) {
